@@ -61,15 +61,19 @@ ADD core-site.xml.template $HADOOP_CONFIG_PATH/core-site.xml.template
 ENV HADOOP_PREFIX /usr/lib/hadoop
 
 # hadoop format namenode
-RUN  hdfs namenode -format AIC
+RUN  hdfs namenode -format $HADOOP_CLUSTER_NAME
 
 # cleanup
 RUN apt-get clean && \
     rm -rf /tmp/* /var/tmp/* jdk-7u79-linux-x64.tar.gz
 
+RUN chmod 0777 /var/run/screen
+
 EXPOSE 9000 50070
 
 COPY bootstrap.sh /
+RUN chmod +x /bootstrap.sh
+
 ENTRYPOINT ["/bootstrap.sh"]
 
 VOLUME /data/dfs /etc/hadoop

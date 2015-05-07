@@ -11,7 +11,7 @@ fi
 if [ -n "${HOSTNAME+1}" ]; then
     sed s/HOSTNAME/"${HOSTNAME}"/ $HADOOP_CONFIG_PATH/core-site.xml.template > $HADOOP_CONFIG_PATH/core-site.xml
     rm $HADOOP_CONFIG_PATH/core-site.xml.template
-else 
+else
     mv $HADOOP_CONFIG_PATH/core-site.xml.template $HADOOP_CONFIG_PATH/core-site.xml
 fi
 

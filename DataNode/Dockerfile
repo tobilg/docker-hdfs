@@ -65,6 +65,8 @@ RUN apt-get clean && \
 EXPOSE 50010 50020 50075
 
 COPY bootstrap.sh /
+RUN chmod +x /bootstrap.sh
+
 ENTRYPOINT ["/bootstrap.sh"]
 
 VOLUME /data/dfs /etc/hadoop
