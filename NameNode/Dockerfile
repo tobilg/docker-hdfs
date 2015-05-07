@@ -67,7 +67,7 @@ RUN  hdfs namenode -format $HADOOP_CLUSTER_NAME
 RUN apt-get clean && \
     rm -rf /tmp/* /var/tmp/* jdk-7u79-linux-x64.tar.gz
 
-RUN chmod 0777 /var/run/screen
+RUN chmod 0775ps  /var/run/screen
 
 EXPOSE 9000 50070
 
