@@ -15,7 +15,6 @@ $ docker run \
     -v /data/dfs/namenode:/data/dfs/nn \
     -v /data/dfs/datanode/1:/data/dfs/dn \
     tobilg/hdfs-namenode
-}'
 ```
 
 The NameNode listens on port 9000 by default.

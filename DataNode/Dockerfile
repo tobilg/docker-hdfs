@@ -62,9 +62,9 @@ ENV HADOOP_PREFIX /usr/lib/hadoop
 RUN apt-get clean && \
     rm -rf /tmp/* /var/tmp/* jdk-7u79-linux-x64.tar.gz
 
-VOLUME /data/dfs /etc/hadoop
-
 EXPOSE 50010 50020 50075
 
 COPY bootstrap.sh /
 ENTRYPOINT ["/bootstrap.sh"]
+
+VOLUME /data/dfs /etc/hadoop

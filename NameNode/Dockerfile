@@ -60,8 +60,6 @@ ADD core-site.xml.template $HADOOP_CONFIG_PATH/core-site.xml.template
 
 ENV HADOOP_PREFIX /usr/lib/hadoop
 
-RUN echo "test"
-
 # hadoop format namenode
 RUN  hdfs namenode -format AIC
 
@@ -69,9 +67,9 @@ RUN  hdfs namenode -format AIC
 RUN apt-get clean && \
     rm -rf /tmp/* /var/tmp/* jdk-7u79-linux-x64.tar.gz
 
-VOLUME /data/dfs /etc/hadoop
-
 EXPOSE 9000 50070
 
 COPY bootstrap.sh /
 ENTRYPOINT ["/bootstrap.sh"]
+
+VOLUME /data/dfs /etc/hadoop
